@@ -1,0 +1,4 @@
+coverage
+*.snap
+dist/**/*
+esm/**/*
