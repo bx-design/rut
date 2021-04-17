@@ -9,6 +9,7 @@ import {
   getVerificationCode,
   elevenModule,
   formatRut,
+  formatRutOnlyScript,
   validateRut,
   validateCompanyRut
 } from './'
@@ -548,6 +549,18 @@ describe('rut utils', () => {
     expect(formatRut(companyRuts.rut3_no_script)).toBe('71.957.851-9')
     expect(formatRut(companyRuts.rut4_no_script)).toBe('64.926.364-7')
     expect(formatRut(fakeRut.no_script)).toBe('11.111.111-1')
+  })
+
+  test('formatRutOnlyScript fn', () => {
+    expect(formatRutOnlyScript(ruts.rut1_no_script)).toBe('4783180-6')
+    expect(formatRutOnlyScript(ruts.rut2_no_script)).toBe('23575004-K')
+    expect(formatRutOnlyScript(ruts.rut3_no_script)).toBe('24558760-0')
+    expect(formatRutOnlyScript(ruts.rut4_no_script)).toBe('18111354-5')
+    expect(formatRutOnlyScript(companyRuts.rut1_no_script)).toBe('82948009-3')
+    expect(formatRutOnlyScript(companyRuts.rut2_no_script)).toBe('79482028-7')
+    expect(formatRutOnlyScript(companyRuts.rut3_no_script)).toBe('71957851-9')
+    expect(formatRutOnlyScript(companyRuts.rut4_no_script)).toBe('64926364-7')
+    expect(formatRutOnlyScript(fakeRut.no_script)).toBe('11111111-1')
   })
 
   test('validateRut fn', () => {

@@ -55,6 +55,21 @@ export const formatRut = (rut: string): string => {
   return result
 }
 
+export const formatRutOnlyScript = (rut: string): string => {
+  if (!isRutValid(rut)) return rut
+
+  const rutCleaned = cleanRut(rut)
+
+  let result =
+    rutCleaned.slice(-4, -1) + '-' + rutCleaned.substr(rut.length - 1)
+
+  for (let i = 4; i < rutCleaned.length; i += 3) {
+    result = rutCleaned.slice(-3 - i, -i) + result
+  }
+
+  return result
+}
+
 export const validateRut = (
   rut: string | null | undefined,
   noFakeRut = true
